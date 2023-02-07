@@ -18,5 +18,4 @@ func GetTestHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println(data)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode("OK!")
-
 }
