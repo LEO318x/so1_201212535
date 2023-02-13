@@ -31,6 +31,11 @@ func RealizarDivision(num1 int64, num2 int64) []models.ResultadoOperacion {
 		tag.Resultado = res
 
 	} else {
+		fechahora := time.Now().Format("2006-01-02 15:04:05")
+		_, err = bd.Exec("INSERT INTO log (numero1, numero2, operacion, resultado, fecha_hora) VALUES (?, ?, ?, ?, ?)", num1, num2, "/", -1, fechahora)
+		if err != nil {
+			log.Printf("Hubo un error al insertar el registro en el historial")
+		}
 		tag.Resultado = -1
 	}
 
