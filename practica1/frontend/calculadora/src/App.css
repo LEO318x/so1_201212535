@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.tabla {
+  border:1px solid #000000;
+  border-collapse:colapso;
+  padding:5px;
+}
+.tabla th {
+  border:1px solid #000000;
+  padding:5px;
+  background:#F0F0F0;
+}
+.tabla td {
+  border:1px solid #000000;
+  padding:5px;
+}
