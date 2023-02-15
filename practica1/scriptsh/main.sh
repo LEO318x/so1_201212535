@@ -20,7 +20,7 @@ echo "# Restas totales realizadas: " $cantresta
 echo "# Multiplicaciones totales realizadas: " $cantmulti
 echo "# Divisiones totales realizadas: " $cantdiv
 echo "###################################################"
-echo "# Divisiones error: " $cantdiverr
+echo "# Divisiones con error: " $cantdiverr
 echo "###################################################"
 echo
 echo $content
