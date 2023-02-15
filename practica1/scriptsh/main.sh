@@ -8,7 +8,6 @@ cantsuma=$(echo $operaciones | grep -o "+" | wc -l)
 cantresta=$(echo $operaciones | grep -o "-" | wc -l)
 cantmulti=$(echo $operaciones | grep -o "*" | wc -l)
 cantdiv=$(echo $operaciones | grep -o "/" | wc -l)
-echo $operacioneserror
 cantdiverr=$(echo $operacioneserror | grep -oP -- '-[1]' | wc -l)
 totaloperaciones=$(($cantsuma+$cantresta+$cantmulti+$cantdiv))
 
