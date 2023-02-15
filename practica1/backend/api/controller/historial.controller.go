@@ -18,7 +18,7 @@ func GetHistorial() ([]models.Tag, error) {
 		}
 	}
 
-	res, err := bd.Query("SELECT * FROM log")
+	res, err := bd.Query("SELECT * FROM so1.log	ORDER BY id DESC")
 	for res.Next() {
 		var tag models.Tag
 		// Para cada fila, escaneamos el resultamo y lo agregamos en nuestra estructura
