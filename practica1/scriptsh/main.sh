@@ -1,6 +1,6 @@
 #!/bin/bash
 
-content=$(curl -L http://localhost:8000/historial)
+content=$(curl -L http://192.168.3.7:8000/historial)
 
 operaciones=$(echo $content | jq '.. | .operador? //empty')
 operacioneserror=$(echo $content | jq '.. | .resultado? //empty')
