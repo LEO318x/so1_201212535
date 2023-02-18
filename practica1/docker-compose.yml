@@ -39,7 +39,6 @@ services:
   scriptsh:
     container_name: so1scriptsh
     image: leo318x/scriptsh_practica1_201212535
-    restart: always
     ports:
       - "9000:9000"
     depends_on:
