@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    volumes: 
+      - /home/mdev/docker/volumenes/mysql/:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD="root"
+    networks:
+      - practica1
+
+  backend:
+    container_name: so1back
+    image: leo318x/backend_practica1_201212535
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    networks:
+      - practica1
+  
+  frontend:
+    container_name: so1front
+    image: leo318x/frontend_practica1_201212535
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - practica1
+  
+  scriptsh:
+    container_name: so1scriptsh
+    image: leo318x/scriptsh_practica1_201212535
+    restart: always
+    ports:
+      - "9000:9000"
+    depends_on:
+      - backend
+    networks:
+      - practica1
+
+networks:
+  practica1:
+    name: sopractica1
+    driver: bridge
