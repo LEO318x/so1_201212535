@@ -1,6 +1,7 @@
 #!/bin/bash
 
 content=$(curl -L http://192.168.3.7:8000/historial)
+content2=$(curl -L http://192.168.3.7:8000/historialhoy)
 
 operaciones=$(echo $content | jq '.. | .operador? //empty')
 operacioneserror=$(echo $content | jq '.. | .resultado? //empty')
@@ -21,6 +22,13 @@ echo "# Divisiones totales realizadas: " $cantdiv
 echo "###################################################"
 echo "# Divisiones con error: " $cantdiverr
 echo "###################################################"
-echo
+echo "#Operaciones del día"
+echo "###################################################"
+echo $content2
+echo "###################################################"
+echo "#Historial completo operaciones"
+echo "###################################################"
 echo $content
+
+
 

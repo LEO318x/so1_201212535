@@ -19,6 +19,7 @@ func main() {
 	r.HandleFunc("/multiplicar", routes.Multiplicar).Methods("POST")
 	r.HandleFunc("/dividir", routes.Dividir).Methods("POST")
 	r.HandleFunc("/historial", routes.Historial).Methods("GET")
+	r.HandleFunc("/historialhoy", routes.Historial2).Methods("GET")
 	log.Printf("Servidor en puerto 8000")
 	http.ListenAndServe(":8000", r)
 
