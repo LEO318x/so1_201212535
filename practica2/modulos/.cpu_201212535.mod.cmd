@@ -1,0 +1,1 @@
+cmd_/home/ldev/Documentos/sopes/so1_201212535/practica2/modulos/cpu_201212535.mod := { echo  /home/ldev/Documentos/sopes/so1_201212535/practica2/modulos/cpu_201212535.o;  echo; } > /home/ldev/Documentos/sopes/so1_201212535/practica2/modulos/cpu_201212535.mod
