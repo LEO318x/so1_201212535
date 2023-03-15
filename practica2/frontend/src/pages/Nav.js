@@ -9,8 +9,10 @@ export default function Nav(){
           <div className="logo">SO1</div>
            <ul className="nav-links">
               <Link to="/">Home</Link>
+              <Link to="/cpuram">Cpu Ram</Link>
               <Link to="/ram">Ram</Link>
               <Link to="/cpu">Cpu</Link>
+              
            </ul>
         </div>
   );

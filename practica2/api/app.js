@@ -20,6 +20,7 @@ app.use('/', require('./routes/default.route'));
 // Routes
 app.use('/api/', require('./routes/ram.route'));
 app.use('/api/', require('./routes/cpu.route'));
+app.use('/api/', require('./routes/cpuram.route'));
 
 // Iniciando servidor
 app.listen(port, () => {

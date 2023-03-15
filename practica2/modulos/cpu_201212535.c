@@ -26,9 +26,9 @@ static int write_file(struct seq_file *file , void *v)
 		// Encontrando los procesos padre
 		if (process->mm) {
             ramMemory = get_mm_rss(process->mm) << PAGE_SHIFT;
-			seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%lu,\"Hijos\":[",__kuid_val(process->cred->uid), process->pid, process->comm, process->__state,ramMemory);
+			seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%lu,\"Hijos\":[",__kuid_val(process->cred->uid), process->pid, process->comm, process->__state,ramMemory/(1024*1024));
         } else {
-            seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%d,\"Hijos\":[",__kuid_val(process->cred->uid), process->pid, process->comm, process->__state,0);
+            seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%lu,\"Hijos\":[",__kuid_val(process->cred->uid), process->pid, process->comm, process->__state,0);
         }
 		seq_printf(file, "{\"Nombre\":\"\",\"UID\":-1,\"PID\":-1,\"Proceso\":\"\",\"Estado\":\"\",\"VmRSS\":-1,\"Hijos\":[]}");
 		// Encontrando los hijos de cada proceso
@@ -36,9 +36,9 @@ static int write_file(struct seq_file *file , void *v)
 			process_son = list_entry(son,struct task_struct, sibling);
 			if (process_son->mm) {
             	ramMemory = get_mm_rss(process_son->mm) << PAGE_SHIFT;
-				seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%lu,\"Hijos\":[]}", __kuid_val(process_son->cred->uid), process_son->pid, process_son->comm, process_son->__state,ramMemory);
+				seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%lu,\"Hijos\":[]}", __kuid_val(process_son->cred->uid), process_son->pid, process_son->comm, process_son->__state,ramMemory/(1024*1024));
 			} else {
-				seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%d,\"Hijos\":[]}", __kuid_val(process_son->cred->uid), process_son->pid, process_son->comm, process_son->__state,0);
+				seq_printf(file, ",{\"Nombre\":\"\",\"UID\":%d,\"PID\":%d,\"Proceso\":\"%s\",\"Estado\":\"%ld\",\"VmRSS\":%lu,\"Hijos\":[]}", __kuid_val(process_son->cred->uid), process_son->pid, process_son->comm, process_son->__state,0);
 			}
 		}
 		seq_printf(file, "]}");

@@ -14,7 +14,7 @@ export default function Cpu() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsLoading(true);
-      fetch("http://localhost:5000/api/cpu")
+      fetch(`${process.env.REACT_APP_URL}/api/cpu`)
       .then((response) => response.json())
       .then((data) => {
         setConCpu(data.data[0].porc_uso);

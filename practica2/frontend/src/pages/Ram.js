@@ -15,7 +15,7 @@ export default function Ram() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsLoading(true);
-      fetch("http://localhost:5000/api/ram")
+      fetch(`${process.env.REACT_APP_URL}/api/ram`)
       .then((response) => response.json())
       .then((data) => {
         setConRam(data.data[0].porc_utilizado);
