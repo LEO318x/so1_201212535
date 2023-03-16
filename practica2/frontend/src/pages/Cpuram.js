@@ -96,7 +96,10 @@ export default function Cpuram() {
                     options={{responsive:true, maintainAspectRatio: false }}
                     data={data}
                     />
-                </div>                
+                </div> 
+                <div>
+                <p>Uso de CPU: {conCpu}%</p>  
+                </div>               
             </Col>
             <Col>
             <div>Uso de RAM</div>
@@ -105,6 +108,10 @@ export default function Cpuram() {
                     options={{responsive:true, maintainAspectRatio: false }}
                     data={data2}
                     />
+                </div> 
+                <div>
+                <p>Uso de RAM: {conRam}%</p>
+                <p>Ram Disponible: {100-conRam}%</p>
                 </div>                
             </Col>
         </Row>

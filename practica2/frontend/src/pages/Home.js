@@ -61,7 +61,8 @@ export default function Home() {
           <td>{key.Proceso}</td>
           <td>{key.Estado}</td>
           <td>{key.VmRSS}</td>
-          <td><Table striped bordered hover>
+          <td>
+            <Table striped bordered hover>
       <thead>
         <tr>
           <th>Nombre</th>
@@ -89,7 +90,7 @@ export default function Home() {
       </Table>
       </td>
         </tr>
-        ))}
+      ))}
         
       </tbody>
     </Table>
