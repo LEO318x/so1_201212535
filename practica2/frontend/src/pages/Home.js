@@ -7,7 +7,7 @@ export default function Home() {
     const [datos, setData] = useState([]);
 
     useEffect(() => {        
-        fetch("http://localhost:5000/api/cpu")
+        fetch(`${process.env.REACT_APP_URL}/api/cpu`)
         .then((response) => response.json())
         .then((data) => {
         setData(data.data[0]);
@@ -47,7 +47,7 @@ export default function Home() {
           <th>PID</th>
           <th>Proceso</th>
           <th>Estado</th>
-          <th>Memoria</th>
+          <th>RAM MB</th>
           <th>Hijos</th>
         </tr>
       </thead>
@@ -60,7 +60,7 @@ export default function Home() {
           <td>{key.PID}</td>
           <td>{key.Proceso}</td>
           <td>{key.Estado}</td>
-          <td>{key.VmRSS}</td>
+          <td>{key.VmRSS}MB</td>
           <td>
             <Table striped bordered hover>
       <thead>
@@ -70,7 +70,7 @@ export default function Home() {
           <th>PID</th>
           <th>Proceso</th>
           <th>Estado</th>
-          <th>Memoria</th>
+          <th>RAM MB</th>
         </tr>
       </thead>
       <tbody>
@@ -82,7 +82,7 @@ export default function Home() {
           <td>{d.PID}</td>
           <td>{d.Proceso}</td>
           <td>{d.Estado}</td>
-          <td>{d.VmRSS}</td>
+          <td>{d.VmRSS}MB</td>
           </tr>
         ))
       }

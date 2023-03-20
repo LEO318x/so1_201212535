@@ -26,7 +26,7 @@ export default function Cpuram() {
         setConRam(data.data2[0].porc_utilizado)
         setIsLoading(false);
       });
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
  

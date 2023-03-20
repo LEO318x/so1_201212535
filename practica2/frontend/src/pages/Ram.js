@@ -22,7 +22,7 @@ export default function Ram() {
         console.log(data.data[0].porc_utilizado);
         setIsLoading(false);
       });
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
  

@@ -21,7 +21,7 @@ export default function Cpu() {
         console.log(data.data[0].porc_uso);
         setIsLoading(false);
       });
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
  
